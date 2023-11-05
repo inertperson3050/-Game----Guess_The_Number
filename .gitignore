@@ -1,52 +1,25 @@
-# Prerequisites
-*.d
+# include<stdio.h>
+# include<time.h>
+# include<stdlib.h>
 
-# Object files
-*.o
-*.ko
-*.obj
-*.elf
+int main(){
+    int num, guess, nguess = 0;
+    printf("                                        **** GUESS THE NUMBER****\n");
+    srand(time(0));
+    num = rand()%100 +1;
 
-# Linker output
-*.ilk
-*.map
-*.exp
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
-
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
-
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
-
-# Debug files
-*.dSYM/
-*.su
-*.idb
-*.pdb
-
-# Kernel Module Compile Results
-*.mod*
-*.cmd
-.tmp_versions/
-modules.order
-Module.symvers
-Mkfile.old
-dkms.conf
+    do
+    {
+        printf("Guess the number between 0 to 100 --> ");
+        scanf("%d", &guess);
+        if(guess > num){
+            printf("Lower the number... \n");
+        } else if(guess < num){
+            printf("Higer the number...\n");
+        } else {
+            printf("DING IT... You guess it right in %d attempts...", nguess);
+        }
+        nguess++;
+    } while (guess != num);
+    return 0;
+}
